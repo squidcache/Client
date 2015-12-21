@@ -286,9 +286,9 @@ their chronological ordering.
 
 ## 相关链接
 
-  - [Twitter](https://github.com/google/git-appraise-eclipse)
-  - [G+](https://github.com/jenkinsci/google-git-notes-publisher-plugin)
-  - [sourceforge+](sourceforge.net/projects/china-badou)
+  - [Twitter](https://twitter.com/onionhacker)
+  - [G+](https://plus.google.com/communities/100095559541855774106)
+  - [sourceforge+](https://sourceforge.net/projects/china-badou)
 
 ## Contributing
 
