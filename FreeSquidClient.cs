@@ -381,7 +381,7 @@ namespace FreeSquidClient
 
         private void SetSquidProxyBackup1()
         {
-            MessageBox.Show("加入VIP服务享受跨平台技术和更多PAC服务器" + "\r\n" + "QQ群:478676422", "项目提示");
+            MessageBox.Show("后续提供" + "\r\n" + "后续提供", "项目提示");
 
         }
         private void SetSquidProxy()
@@ -449,7 +449,7 @@ namespace FreeSquidClient
 
        private void CallMyDES()
         {
-            Byte[] key = { 62, 24, 34, 45, 77, 67, 78, 89 };
+            Byte[] key = { 62, 24, 34, 46, 77, 67, 78, 89 };
             Byte[] iv = { 120, 230, 10, 101, 10, 56, 30, 89 };
 
             DynamicEncryption = FetchDynamicEncryption;
