@@ -20,7 +20,7 @@ namespace SquidClient
 
             if (!result)
             {
-                MessageBox.Show("Another HummingbirdInstance is already running.");
+                MessageBox.Show("客户端已经运行!");
                 return;
             }
 

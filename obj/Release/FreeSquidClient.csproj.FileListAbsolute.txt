@@ -1,0 +1,10 @@
+F:\C#\蜂鸟PAC\pac\pac\bin\Release\FreeSquidClient.exe.config
+F:\C#\蜂鸟PAC\pac\pac\bin\Release\FreeSquidClient.exe
+F:\C#\蜂鸟PAC\pac\pac\bin\Release\FreeSquidClient.pdb
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.Form1.resources
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.Properties.Resources.resources
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.csproj.GenerateResource.Cache
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.exe
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.pdb
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.csprojResolveAssemblyReference.cache
+F:\C#\蜂鸟PAC\pac\pac\obj\Release\FreeSquidClient.browser.resources

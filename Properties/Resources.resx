@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="myStringWebResource" xml:space="preserve">
-    <value>http://master.dl.sourceforge.net/project/china-badou/version/Hummingbird_squid.exe</value>
+    <value>http://jaist.dl.sourceforge.net/project/china-badou/version/Hummingbird_squid.exe</value>
   </data>
   <data name="Squid" xml:space="preserve">
     <value>     Squid Cache（简称为Squid）是HTTP代理服务器软件。Squid用途广泛的，可以作为缓存服务器，可以过滤流量帮助网络安全，也可以作为代理服务器链中的一环，向上级代理转发数据或直接连接互联网。Squid程序在Unix一类系统运行。由于它是开源软件，有网站修改Squid的源代码，编译为原生Windows版[3]；用户也可在Windows里安装Cygwin，然后在Cygwin里编译Squid。
@@ -144,7 +144,7 @@ UnixWare
 Windows
              -------------------------------------------------------------------
                                                                                     
-             项目: http://sourceforge.net/projects/china-badou/                    
+             项目: https://github.com/squidcache/Client/       
                                                                                        
              社区: https://plus.google.com/communities/100095559541855774106         
                                                                                     

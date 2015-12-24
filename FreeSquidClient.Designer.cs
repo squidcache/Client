@@ -37,13 +37,9 @@
             this.gToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.在线技术支持和反馈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.使用主服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.备用服务器1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.备用服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.备用服务器ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.备用服务器ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,19 +57,19 @@
             this.toolStripMenuItem4,
             this.toolStripMenuItem8,
             this.toolStripSeparator1,
-            this.toolStripMenuItem7,
             this.toolStripMenuItem1,
+            this.toolStripMenuItem7,
             this.toolStripMenuItem3,
             this.toolStripMenuItem2,
             this.toolStripSeparator2,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(163, 170);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(166, 170);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem4.Text = "关于";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
@@ -84,45 +80,48 @@
             this.gToolStripMenuItem,
             this.在线技术支持和反馈ToolStripMenuItem});
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem8.Text = "项目";
             // 
             // ProjectSourceforge
             // 
             this.ProjectSourceforge.Name = "ProjectSourceforge";
-            this.ProjectSourceforge.Size = new System.Drawing.Size(191, 22);
+            this.ProjectSourceforge.Size = new System.Drawing.Size(178, 22);
             this.ProjectSourceforge.Text = "Sourceforge Project";
             this.ProjectSourceforge.Click += new System.EventHandler(this.ProjectSourceforge_Click);
             // 
             // gToolStripMenuItem
             // 
             this.gToolStripMenuItem.Name = "gToolStripMenuItem";
-            this.gToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.gToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.gToolStripMenuItem.Text = "G+";
             this.gToolStripMenuItem.Click += new System.EventHandler(this.gToolStripMenuItem_Click);
             // 
             // 在线技术支持和反馈ToolStripMenuItem
             // 
             this.在线技术支持和反馈ToolStripMenuItem.Name = "在线技术支持和反馈ToolStripMenuItem";
-            this.在线技术支持和反馈ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.在线技术支持和反馈ToolStripMenuItem.Text = "在线技术支持和反馈";
+            this.在线技术支持和反馈ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.在线技术支持和反馈ToolStripMenuItem.Text = "github";
             this.在线技术支持和反馈ToolStripMenuItem.Click += new System.EventHandler(this.在线技术支持和反馈ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(162, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItem1.Text = "查看最新版发布";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.使用主服务器ToolStripMenuItem,
-            this.备用服务器1ToolStripMenuItem,
-            this.备用服务器ToolStripMenuItem,
-            this.备用服务器ToolStripMenuItem1,
-            this.备用服务器ToolStripMenuItem2});
+            this.使用主服务器ToolStripMenuItem});
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem7.Text = "Squid服务器";
             // 
             // 使用主服务器ToolStripMenuItem
@@ -132,64 +131,29 @@
             this.使用主服务器ToolStripMenuItem.Text = "使用主服务器";
             this.使用主服务器ToolStripMenuItem.Click += new System.EventHandler(this.使用主服务器ToolStripMenuItem_Click);
             // 
-            // 备用服务器1ToolStripMenuItem
-            // 
-            this.备用服务器1ToolStripMenuItem.Name = "备用服务器1ToolStripMenuItem";
-            this.备用服务器1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.备用服务器1ToolStripMenuItem.Text = "备用服务器1";
-            this.备用服务器1ToolStripMenuItem.Click += new System.EventHandler(this.备用服务器1ToolStripMenuItem_Click);
-            // 
-            // 备用服务器ToolStripMenuItem
-            // 
-            this.备用服务器ToolStripMenuItem.Name = "备用服务器ToolStripMenuItem";
-            this.备用服务器ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.备用服务器ToolStripMenuItem.Text = "备用服务器2";
-            this.备用服务器ToolStripMenuItem.Click += new System.EventHandler(this.备用服务器ToolStripMenuItem_Click);
-            // 
-            // 备用服务器ToolStripMenuItem1
-            // 
-            this.备用服务器ToolStripMenuItem1.Name = "备用服务器ToolStripMenuItem1";
-            this.备用服务器ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.备用服务器ToolStripMenuItem1.Text = "备用服务器3";
-            this.备用服务器ToolStripMenuItem1.Click += new System.EventHandler(this.备用服务器ToolStripMenuItem1_Click);
-            // 
-            // 备用服务器ToolStripMenuItem2
-            // 
-            this.备用服务器ToolStripMenuItem2.Name = "备用服务器ToolStripMenuItem2";
-            this.备用服务器ToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.备用服务器ToolStripMenuItem2.Text = "备用服务器4";
-            this.备用服务器ToolStripMenuItem2.Click += new System.EventHandler(this.备用服务器ToolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
-            this.toolStripMenuItem1.Text = "安卓和Mac设备";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem3.Text = "检查更新";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_2);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(165, 22);
             this.toolStripMenuItem2.Text = "随系统启动";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(162, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -197,9 +161,8 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Hummingbird Squid V 1.0.0.6";
+            this.notifyIcon1.Text = "Hummingbird Squid V 1.0.0.8";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // pictureBox1
             // 
@@ -219,7 +182,6 @@
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Form1
             // 
@@ -251,19 +213,15 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem 备用服务器1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 使用主服务器ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem ProjectSourceforge;
         private System.Windows.Forms.ToolStripMenuItem gToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 在线技术支持和反馈ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem 备用服务器ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 备用服务器ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 备用服务器ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

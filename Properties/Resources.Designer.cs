@@ -71,7 +71,7 @@ namespace FreeSquidClient.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://master.dl.sourceforge.net/project/china-badou/version/Hummingbird_squid.exe.
+        ///   Looks up a localized string similar to http://jaist.dl.sourceforge.net/project/china-badou/version/Hummingbird_squid.exe.
         /// </summary>
         internal static string myStringWebResource {
             get {

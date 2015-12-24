@@ -24,12 +24,13 @@ namespace FreeSquidClient
         public const int INTERNET_OPTION_REFRESH = 37;
         static bool _settingsReturn, _refreshReturn;
 
-        string ClientVersion = Properties.Resources.myStringWebResource;
-        string ClientDL = Properties.Resources.xmlURL;
+        string ClientDL = Properties.Resources.myStringWebResource;
+        string ClientVersion = Properties.Resources.xmlURL;
         string DynamicEncryption = null;
         string DynamicDecryption = null;
 
         string FetchDynamicEncryption;
+        string FetchWebURL;
 
 
 
@@ -45,6 +46,9 @@ namespace FreeSquidClient
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// 
+        /// </summary>
         private void MarkStartup()
         {
 
@@ -90,6 +94,26 @@ namespace FreeSquidClient
             runKey.Close();
         }
 
+        private static void IEAutoDetectProxy(bool set)
+        {
+            RegistryKey registry =
+                Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Connections",
+                    true);
+            byte[] defConnection = (byte[])registry.GetValue("DefaultConnectionSettings");
+            byte[] savedLegacySetting = (byte[])registry.GetValue("SavedLegacySettings");
+            if (set)
+            {
+                defConnection[8] = Convert.ToByte(defConnection[8] & 8);
+                savedLegacySetting[8] = Convert.ToByte(savedLegacySetting[8] & 8);
+            }
+            else
+            {
+                defConnection[8] = Convert.ToByte(defConnection[8] & ~8);
+                savedLegacySetting[8] = Convert.ToByte(savedLegacySetting[8] & ~8);
+            }
+            registry.SetValue("DefaultConnectionSettings", defConnection);
+            registry.SetValue("SavedLegacySettings", savedLegacySetting);
+        }
 
 
         private void SetStartup()
@@ -163,16 +187,16 @@ namespace FreeSquidClient
             // download the new version  
             // it can be a homepage or a direct  
             // link to zip/exe file  
-            string url = "";
+            // string url = "";
             XmlTextReader reader = null;
             try
             {
                 // provide the XmlTextReader with the URL of  
                 // our xml document  
-                var StrxmlURL = FreeSquidClient.Properties.Resources.xmlURL;
+                //    var StrxmlURL = FreeSquidClient.Properties.Resources.xmlURL;
                 // MessageBox.Show(StrxmlURL);
 
-                reader = new XmlTextReader(StrxmlURL);
+                reader = new XmlTextReader(xmlURL);
                 // simply (and easily) skip the junk at the beginning  
                 reader.MoveToContent();
                 // internal - as the XmlTextReader moves only  
@@ -212,6 +236,12 @@ namespace FreeSquidClient
 
                                         FetchDynamicEncryption = reader.Value;
                                         break;
+
+                                    case "LoadWebsite":
+
+                                        FetchWebURL = reader.Value;
+                                        break;
+
 
                                 }
                             }
@@ -254,10 +284,11 @@ namespace FreeSquidClient
                     webClient.Proxy = null;
                     ServicePointManager.DefaultConnectionLimit = 25;
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+
                     //  webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                     webClient.DownloadFileAsync(new Uri(myStringWebResource), @path + "/" + Downloadfilename);
 
-
+                    // MessageBox.Show(myStringWebResource);
                 }
 
                 else
@@ -286,98 +317,53 @@ namespace FreeSquidClient
 
         private void DeleteAdslSettting()
         {
+            try
+            {
+                string starupPath = Application.ExecutablePath;
+                //class Micosoft.Win32.RegistryKey. 表示Window注册表中项级节点,此类是注册表装.
+                RegistryKey loca1 = Registry.CurrentUser;
+                RegistryKey Adslrun = loca1.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings");
 
-            string starupPath = Application.ExecutablePath;
-            //class Micosoft.Win32.RegistryKey. 表示Window注册表中项级节点,此类是注册表装.
-            RegistryKey loca1 = Registry.CurrentUser;
-            RegistryKey Adslrun = loca1.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections");
+                Adslrun.SetValue("ProxyEnable", 0);
+                Adslrun.SetValue("ProxyServer", "");
+                Adslrun.SetValue("AutoConfigURL", "");
+
+
+                IEAutoDetectProxy(false);
+                NotifyIE();
+                //Must Notify IE first, or the connections do not chanage
+                CopyProxySettingFromLan();
+            }
+
+            catch
+
+            {
+                // TODO this should be moved into views
+                //   MessageBox.Show(g("Failed to update registry"));
+            }
+
 
             //  RegistryKey subKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings");
-            string[] keyValueNames = Adslrun.GetValueNames();
+            //string[] keyValueNames = Adslrun.GetValueNames();
 
-            foreach (string keyValueName in keyValueNames)
+            //foreach (string keyValueName in keyValueNames)
 
-            {
+            //{
 
-                try
-                {
-                    Adslrun.DeleteValue(keyValueName);
+            //    try
+            //    {
+            //        Adslrun.DeleteValue(keyValueName);
 
-                }
+            //    }
 
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-        }
-
-        private void DeleteLANSettting()
-        {
-            RegistryKey loca = Registry.CurrentUser;
-            RegistryKey run = loca.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings");
-            //  Software\Microsoft\\Windows\CurrentVersion\Internet Settings\Connections",
-
-
-
-            string[] keyValueNames = run.GetValueNames();
-
-            // run.Close();
-
-            //bool result = false;
-
-            foreach (string keyValueName in keyValueNames)
-
-            {
-
-                if (keyValueName == "ProxyServer")
-
-                {
-                    run.DeleteValue("ProxyServer");
-                    // result = true;
-
-                    break;
-
-                }
-
-                else
-
-                {
-                    Console.WriteLine("Test");
-
-                }
-                if (keyValueName == "AutoConfigURL")
-
-                {
-                    run.DeleteValue("AutoConfigURL");
-                    break;
-
-                }
-
-                else
-
-                {
-                    Console.WriteLine("Test");
-                }
-
-            }
-
-
-            try
-
-            {
-                run.SetValue("ProxyEnable", 0);
-                loca.Close();
-            }
-
-            catch (Exception ee)
-
-            {
-                MessageBox.Show(ee.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    catch (Exception e)
+            //    {
+            //        MessageBox.Show(e.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
         }
+
 
         private void SetSquidProxyBackup1()
         {
@@ -399,11 +385,19 @@ namespace FreeSquidClient
                 run.SetValue("ProxyEnable", 0);
                 run.SetValue("ProxyServer", "");
                 run.SetValue("AutoConfigURL", pacUrl);
-                NotifyIE();
-              //  MessageBox.Show(pacUrl);
+
+                //  MessageBox.Show(pacUrl);
                 //Must Notify IE first, or the connections do not chanage
+                NotifyIE();
+                IEAutoDetectProxy(false);
+
+                CopyProxySettingFromLan();
 
             }
+
+
+
+
 
             catch (Exception ee)
 
@@ -411,7 +405,6 @@ namespace FreeSquidClient
                 MessageBox.Show(ee.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            CopyProxySettingFromLan();
 
         }
 
@@ -447,9 +440,10 @@ namespace FreeSquidClient
             return Encoding.Unicode.GetString(mStream.ToArray());
         }
 
-       private void CallMyDES()
+        private void CallMyDES()
         {
-            Byte[] key = { 62, 24, 34, 46, 77, 67, 78, 89 };
+
+            Byte[] key = { 62, 24, 34, 45, 77, 67, 78, 89 };
             Byte[] iv = { 120, 230, 10, 101, 10, 56, 30, 89 };
 
             DynamicEncryption = FetchDynamicEncryption;
@@ -489,14 +483,21 @@ namespace FreeSquidClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DeleteAdslSettting();
 
+  
 
             CheckUpdate(ClientVersion, ClientDL);//fetch  version seria and  squidLatestURL
 
             CallMyDES(); //Decrption SquidURL info assgin to pac Menu called 
 
-           // MessageBox.Show(FetchDynamicEncryption);// test funcation  that  fetch a Info success or fail!
-          //  MessageBox.Show(DynamicDecryption);// Test  funcation that using webclient  nornally 
+            browser form = new browser();
+            form.WebsiteURL= FetchWebURL;
+            form.Show();
+
+
+            // MessageBox.Show(FetchDynamicEncryption);// test funcation  that  fetch a Info success or fail!
+            //  MessageBox.Show(DynamicDecryption);// Test  funcation that using webclient  nornally 
 
             SetSquidProxy();
             MarkStartup();
@@ -514,7 +515,6 @@ namespace FreeSquidClient
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteAdslSettting();
-            DeleteLANSettting();
             notifyIcon1.Icon = null;
             notifyIcon1.Dispose();
             Application.DoEvents();
@@ -557,7 +557,7 @@ namespace FreeSquidClient
         private void 使用主服务器ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetSquidProxy();
-            备用服务器1ToolStripMenuItem.Checked = false;
+            //备用服务器1ToolStripMenuItem.Checked = false;
             使用主服务器ToolStripMenuItem.Checked = true;
         }
 
@@ -584,7 +584,7 @@ namespace FreeSquidClient
 
         private void 在线技术支持和反馈ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://gitter.im/hummingbird2016/chatting/");
+            System.Diagnostics.Process.Start("https://github.com/squidcache/Client");
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -614,29 +614,18 @@ namespace FreeSquidClient
             }
         }
 
-        private void 备用服务器ToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            SetSquidProxyBackup1();
-        }
 
-        private void 备用服务器ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SetSquidProxyBackup1();
-        }
 
         private void 备用服务器ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SetSquidProxyBackup1();
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            browser form = new browser();
+            form.WebsiteURL = FetchWebURL;
+            form.Show();
         }
 
         private void 服务器2ToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,8 +1,9 @@
-# 视频缓存技术的分布式应用
+# 视频缓存技术的分布式应用-一个轻量、安全、快速的新技术应用
 
-This repo contains a command line tool for performing code reviews on git
-repositories.
-
+  - [Windows下载](https://github.com/squidcache/Client/releases/download/V1.0.0.8/Hummingbird_squid.exe)
+  - [服务端部署](https://github.com/squidcache/Client/releases/download/V1.0.0.8/Hummingbird_squid.exe)
+  
+## 如若使用客户端源码和服务端部署著作权请注明枫叶香蕉!
 ## Overview
 
 This tool is a *distributed* code review system for git repos.
