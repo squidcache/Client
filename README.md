@@ -1,8 +1,13 @@
-# 视频缓存技术的分布式应用-一个轻量、安全、快速的新技术应用
+# 视频缓存技术的分布式应用
 
   - [Windows下载](https://github.com/squidcache/Client/releases/download/V1.0.0.8/Hummingbird_squid.exe)
   - [服务端部署](https://github.com/squidcache/SquidServer)
 
+## 支持系统
+  * Windows
+  * Mac
+  * android
+  * ios
 
 ## 相关链接
 
